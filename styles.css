@@ -1,0 +1,730 @@
+/* 基础样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  min-height: 100vh;
+  background: #fff1f1;
+  background-image: 
+    radial-gradient(#ff8989 1px, transparent 1px),
+    radial-gradient(#ff8989 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* 容器样式 */
+.festive-background {
+  min-height: 100vh;
+  background-color: #ff4d4d;
+  background-image: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ff8080" opacity="0.5"/></svg>');
+  background-size: 50px 50px;
+  padding: 1rem;
+}
+
+.blessing-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+  border: 2px solid #ff9c9c;
+  position: relative;
+  overflow: hidden;
+}
+
+.blessing-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4d4d, #ff8080, #ff4d4d);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #e74c3c;
+  margin: 1rem 0 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4d4d, #ff8080, #ff4d4d);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* 表单项样式 */
+.form-item {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-item label {
+  display: block;
+  color: #ff6b6b;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* 普通输入框样式 */
+.form-item input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ffcaca;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.3s ease;
+  min-height: 45px;
+}
+
+/* 其他要求输入框特殊样式 */
+.form-item textarea.requirements-input {
+  width: 100%;
+  min-width: 300px;  /* 初始最小宽度 */
+  min-height: 45px;  /* 初始最小高度 */
+  padding: 0.8rem 1rem;
+  border: 1px solid #ffcaca;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.3s ease;
+  resize: both;      /* 允许双向拖拽调整大小 */
+  overflow: auto;    /* 添加滚动条 */
+  line-height: 1.5;  /* 更好的行间距 */
+}
+
+.form-item textarea.requirements-input:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+/* 自动调整高度的最大限制 */
+.form-item textarea.requirements-input {
+  max-height: 200px; /* 最大高度限制 */
+}
+
+/* 快速选项样式 */
+.quick-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quick-option {
+  padding: 0.4rem 0.7rem;
+  background: #fff5f5;
+  border: 1px solid #ffcaca;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-option:hover {
+  background: #ffe0e0;
+  border-color: #ff6b6b;
+}
+
+/* 祝福语选项样式 */
+.blessing-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.blessing-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 按钮样式 */
+.generate-btn,
+.action-btn,
+.send-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ff4d4d);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.generate-btn:hover,
+.action-btn:hover,
+.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* 祝福语结果样式 */
+.blessing-results {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blessing-option:hover {
+  border-color: #ff6b6b;
+  background: #fff5f5;
+  transform: translateY(-2px);
+}
+
+.blessing-option.selected {
+  border-color: #ff6b6b;
+  background: #fff5f5;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.2);
+}
+
+/* 评分组件样式 */
+.rating-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 0;
+}
+
+.star {
+  font-size: 2rem;
+  color: #ffd1d1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.star:hover,
+.star.active {
+  color: #ffbb00;
+  transform: scale(1.1);
+}
+
+/* 聊天容器样式 */
+.chat-container {
+  margin-top: 1.5rem;
+  border: 1px solid #ffcaca;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.chat-history {
+  height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 12px;
+  max-width: 85%;
+  position: relative;
+}
+
+.chat-message.assistant {
+  background: #fff5f5;
+  margin-right: auto;
+  border: 1px solid #ffcaca;
+}
+
+.chat-message.user {
+  background: linear-gradient(135deg, #ff6b6b, #ff4d4d);
+  color: white;
+  margin-left: auto;
+}
+
+/* 聊天输入区域样式 */
+.chat-input {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.input-wrapper textarea {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ffcaca;
+  border-radius: 20px;
+  resize: none;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.current-blessing-hint {
+  font-size: 12px;
+  color: #999;
+  padding-left: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* 限制最大宽度 */
+}
+
+/* 分享模态框样式 */
+.share-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border: 2px solid #ff6b6b;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.share-image img,
+.qrcode img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* 适配不同屏幕尺寸 */
+@media (min-width: 768px) {
+  .blessing-container {
+    max-width: 600px;
+    margin: 2rem auto;
+  }
+}
+
+/* 加载动画 */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* 移除灯笼样式 */
+.lantern {
+  display: none;
+}
+
+/* 灯笼样式调整 */
+.lantern {
+  width: 40px;
+  height: 60px;
+}
+
+.lantern::before {
+  font-size: 20px;
+}
+
+/* 喜庆装饰元素 */
+.lantern {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background: #ff0000;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  animation: swing 3s ease-in-out infinite;
+}
+
+.lantern::before {
+  content: "福";
+  position: absolute;
+  color: #ffeb3b;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lantern-left {
+  top: 50px;
+  left: 50px;
+}
+
+.lantern-right {
+  top: 50px;
+  right: 50px;
+}
+
+.chat-history {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.generate-btn {
+  background: #ff4d4d;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.generate-btn:hover {
+  background: #ff3333;
+  transform: translateY(-2px);
+}
+
+/* 按钮样式 */
+.confirm-btn {
+  background: #ff6b6b;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.confirm-btn:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+/* 动画效果 */
+@keyframes backgroundMove {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* 聊天界面样式 */
+.chat-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  background: white;
+  padding: 15px;
+}
+
+.chat-history {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.send-btn {
+  background: #ff4d4d;
+  color: white;
+  padding: 0 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 评分组件样式 */
+.rating-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.star-rating {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.star {
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.star:hover,
+.star.hover {
+    color: #ffeb3b;
+}
+
+.star.active {
+    color: #ffd700;
+}
+
+/* 确保星星可以点击 */
+.star {
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* 操作按钮样式 */
+.blessing-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.action-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff6b6b, #ff4d4d);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* 分享弹窗样式 */
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.share-image {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.qrcode {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.close-modal {
+    display: block;
+    margin: 0 auto;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff6b6b;
+    color: white;
+    cursor: pointer;
+}
+
+/* 加载状态样式 */
+.chat-message.loading {
+  opacity: 0.6;
+}
+
+.chat-message.loading .message-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-message.loading .message-content::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ff6b6b;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Markdown 样式 */
+.message-content {
+  line-height: 1.5;
+}
+
+.message-content p {
+  margin: 0.5em 0;
+}
+
+.message-content ul, 
+.message-content ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.message-content code {
+  background: rgba(255, 107, 107, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.message-content pre {
+  background: #f8f9fa;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* 当前祝福语提示样式 */
+.current-blessing-hint {
+  font-size: 12px;
+  color: #999;
+  padding: 4px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 分享按钮样式 */
+.share-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.share-btn:hover {
+  background: #ff5252;
+}
+
+/* 加载状态 */
+.share-btn.loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* 弹窗样式 */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease;
+  border: 2px solid #d81e06; /* 红色边框 */
+  background-color: #ffcccc; /* 浅红色背景 */
+  display: flex;
+  align-items: center;
+}
+
+.popup.success {
+  background-color: #ffcccc; /* 浅红色 */
+}
+
+.popup.error {
+  background-color: #F44336; /* 红色 */
+}
+
+.popup.fade-out {
+  opacity: 0;
+}
+
+.popup svg {
+  margin-right: 10px; /* 图标与文本之间的间距 */
+  width: 24px; /* 图标大小 */
+  height: 24px; /* 图标大小 */
+} 

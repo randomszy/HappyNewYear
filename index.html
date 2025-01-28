@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>智能祝福语生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="festive-background">
+        <div class="blessing-container">
+            <h1 class="title">智能祝福语生成器</h1>
+            
+            <div class="blessing-form">
+                <div class="form-item">
+                    <label>祝福对象</label>
+                    <input type="text" id="targetInput" placeholder="请输入或选择祝福对象">
+                    <div class="quick-options">
+                        <div class="quick-option" data-value="领导">领导</div>
+                        <div class="quick-option" data-value="同事">同事</div>
+                        <div class="quick-option" data-value="客户">客户</div>
+                        <div class="quick-option" data-value="朋友">朋友</div>
+                        <div class="quick-option" data-value="家人">家人</div>
+                        <div class="quick-option" data-value="长辈">长辈</div>
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <label>祝福风格</label>
+                    <input type="text" id="styleInput" placeholder="请输入或选择祝福风格">
+                    <div class="quick-options">
+                        <div class="quick-option" data-value="严肃正式">严肃正式</div>
+                        <div class="quick-option" data-value="可爱活泼">可爱活泼</div>
+                        <div class="quick-option" data-value="幽默风趣">幽默风趣</div>
+                        <div class="quick-option" data-value="温馨暖心">温馨暖心</div>
+                       
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <label>祝福长度</label>
+                    <input type="text" id="lengthInput" placeholder="请输入或选择祝福长度">
+                    <div class="quick-options">
+                        <div class="quick-option" data-value="简短 (20字左右)">简短</div>
+                        <div class="quick-option" data-value="适中 (50字左右)">适中</div>
+                        <div class="quick-option" data-value="较长 (100字左右)">较长</div>
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <label>其他要求</label>
+                    <textarea class="requirements-input" 
+                    id="requirementsInput" 
+                    rows="1" placeholder="请输入其他具体要求（如：包含某些祝福语、特定场合、你与祝福对象的回忆等）"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button id="generateBtn" class="generate-btn">生成祝福语</button>
+                </div>
+
+                <div class="blessing-results" style="display: none;">
+                    <h3>为您生成的祝福语：</h3>
+                    <div class="blessing-options">
+                        <!-- 祝福语选项将在这里动态生成 -->
+                    </div>
+                    
+                    <!-- 评分部分 -->
+                    <div class="rating-container">
+                        <p>请为这次生成的祝福语打分：</p>
+                        <div class="star-rating">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+
+
+
+                <!-- 聊天输入区域 -->
+                <div class="chat-container" style="display: none;">
+                    <div class="chat-history"></div>
+                    <div class="chat-input">
+                        <div class="input-wrapper">
+                            <textarea placeholder="请输入以改进祝福语"></textarea>
+                            <button class="send-btn">发送</button>
+                        </div>
+                       
+                    </div>
+                     <div class="current-blessing-hint"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 先引入API服务 -->
+    <script src="api.js"></script>
+    <!-- 再引入主要逻辑 -->
+    <script src="main.js"></script>
+    <!-- 初始化应用 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new BlessingGenerator();
+        });
+    </script>
+
+    <!-- 在 body 末尾添加隐藏的图片预加载 -->
+    <div style="display: none;">
+        <img id="shareBackground" src="images/background.jpg" crossorigin="anonymous">
+    </div>
+</body>
+</html> 
